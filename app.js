@@ -1,40 +1,51 @@
 const btnOne = document.querySelector("#btnOne");
 const btnTwo = document.querySelector("#btnTwo");
-const pointsOne = document.querySelector(".pointsOne");
-const pointsTwo = document.querySelector(".pointsTwo");
-const winningScore = document.querySelector("#winningScore");
+const scoreOne = document.querySelector("#scoreOne");
+const scoreTwo = document.querySelector("#scoreTwo");
+const winningScoreSelect = document.querySelector("#winningScore");
 const resetBtn = document.querySelector("#reset");
 
 let clicksOne = 0;
 let clicksTwo = 0;
+let winningScore = winningScoreSelect.value;
 
-btnOne.addEventListener("mousedown", () => {
-    if (clicksOne < winningScore.value) {
+function disableButtons() {
+    btnOne.setAttribute("disabled", "");
+    btnTwo.setAttribute("disabled", "");
+}
+
+btnOne.addEventListener("click", () => {
+    if (clicksOne < winningScore) {
         clicksOne += 1;
-        pointsOne.textContent = clicksOne;
+        scoreOne.textContent = clicksOne;
     }
-    if (clicksOne == winningScore.value) {
-        btnOne.setAttribute("disabled", "");
-        btnTwo.setAttribute("disabled", "");
+    if (clicksOne == winningScore) {
+        disableButtons();
     }
 });
 
-btnTwo.addEventListener("mousedown", () => {
-    if (clicksTwo < winningScore.value) {
+btnTwo.addEventListener("click", () => {
+    if (clicksTwo < winningScore) {
         clicksTwo++;
-        pointsTwo.textContent = clicksTwo;
+        scoreTwo.textContent = clicksTwo;
     }
-    if (clicksTwo == winningScore.value) {
-        btnOne.setAttribute("disabled", "");
-        btnTwo.setAttribute("disabled", "");
+    if (clicksTwo == winningScore) {
+        disableButtons();
     }
 });
 
-resetBtn.addEventListener("click", () => {
+function reset() {
     clicksOne = 0;
     clicksTwo = 0;
-    pointsOne.textContent = clicksOne;
-    pointsTwo.textContent = clicksTwo;
-    btnOne.toggleAttribute("disabled");
-    btnTwo.toggleAttribute("disabled");
-});
+    scoreOne.textContent = clicksOne;
+    scoreTwo.textContent = clicksTwo;
+    btnOne.removeAttribute("disabled");
+    btnTwo.removeAttribute("disabled");
+}
+
+winningScoreSelect.addEventListener("change", () => {
+    winningScore = parseInt(winningScoreSelect.value);
+    reset();
+})
+
+resetBtn.addEventListener("click", reset);
