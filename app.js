@@ -8,33 +8,33 @@ const resetBtn = document.querySelector("#reset");
 let clicksOne = 0;
 let clicksTwo = 0;
 let winningScore = winningScoreSelect.value;
+let isGameOver = false;
 
-function disableButtons() {
-    btnOne.setAttribute("disabled", "");
-    btnTwo.setAttribute("disabled", "");
-}
+// function disableButtons() {
+//     btnOne.setAttribute("disabled", "");
+//     btnTwo.setAttribute("disabled", "");
+// }
 
 btnOne.addEventListener("click", () => {
-    if (clicksOne < winningScore) {
-        clicksOne += 1;
+    if (!isGameOver) {
+        clicksOne++;
         scoreOne.textContent = clicksOne;
-    }
-    if (clicksOne == winningScore) {
-        disableButtons();
+    } if (clicksOne == winningScore) {
+        isGameOver = true;
     }
 });
 
 btnTwo.addEventListener("click", () => {
-    if (clicksTwo < winningScore) {
+    if (!isGameOver) {
         clicksTwo++;
         scoreTwo.textContent = clicksTwo;
-    }
-    if (clicksTwo == winningScore) {
-        disableButtons();
+    } if (clicksTwo == winningScore) {
+        isGameOver = true;
     }
 });
 
 function reset() {
+    isGameOver = false;
     clicksOne = 0;
     clicksTwo = 0;
     scoreOne.textContent = clicksOne;
