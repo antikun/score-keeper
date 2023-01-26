@@ -1,8 +1,8 @@
-const btnOne = document.querySelector("#btnOne");
-const btnTwo = document.querySelector("#btnTwo");
-const scoreOne = document.querySelector("#scoreOne");
-const scoreTwo = document.querySelector("#scoreTwo");
-const winningScoreSelect = document.querySelector("#winningScore");
+const btnOne = document.querySelector("#btn-one");
+const btnTwo = document.querySelector("#btn-two");
+const scoreOne = document.querySelector("#score-one");
+const scoreTwo = document.querySelector("#score-two");
+const winningScoreSelect = document.querySelector("#winning-score");
 const resetBtn = document.querySelector("#reset");
 
 let clicksOne = 0;

@@ -9,23 +9,44 @@
 </head>
 
 <body>
-    <div>
-        <h1><span id="scoreOne">0</span> to <span id="scoreTwo">0</span></h1>
-        <p>Use the buttons below to keep score</p>
-    </div>
+    <div class="container">
+        <img src="./images/lennart-schneider-2Ov5_5WKaKM-unsplash (1).jpg" class="banner" alt="">
+        <p class="title">Ping Pong Score Keeper</p>
+        <p class="credit">
+            Photo by <a
+                href="https://unsplash.com/@lennartschneider?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lennart
+                Schneider</a> on <a
+                href="https://unsplash.com/photos/2Ov5_5WKaKM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
 
-    <div>
-        <label for="winningScore">Playing to</label>
-        <select name="winningScore" id="winningScore">
-            <option value="3">3</option>
-            <option value="5" selected>5</option>
-            <option value="7">7</option>
-            <option value="9">9</option>
-            <option value="11">11</option>
-        </select>
-        <button id="btnOne">Player One</button>
-        <button id="btnTwo">Player Two</button>
-        <button id="reset">Reset</button>
+        <main>
+            <div class="md-section">
+                <h1><span id="score-one">0</span> to <span id="score-two">0</span></h1>
+                <p class="instructions">
+                    Use the buttons below to keep score
+                </p>
+
+                <div class="select-option">
+                    <label for="winning-score" class="select-win-score">
+                        Playing to
+                    </label>
+                    <select name="winning-score" id="winning-score">
+                        <option value="3">3</option>
+                        <option value="5" selected>5</option>
+                        <option value="7">7</option>
+                        <option value="9">9</option>
+                        <option value="11">11</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="btns-section">
+                <button id="btn-one" class="buttons">+1 Player One</button>
+                <button id="btn-two" class="buttons">+1 Player Two</button>
+                <button id="reset" class="buttons">Reset</button>
+            </div>
+        </main>
+
     </div>
 
     <script src="./app.js"></script>
